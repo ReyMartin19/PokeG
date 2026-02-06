@@ -13,6 +13,8 @@ Route::get('/home', function () {
 
 Route::get('/pokedex', [PokemonController::class, 'index'])->name('pokedex.index');
 
+
+//auth
 Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
 Route::post('/login', [AuthController::class, 'login'])->name('login.post');
 
