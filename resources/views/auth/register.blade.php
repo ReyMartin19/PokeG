@@ -1,28 +1,28 @@
 @extends('layouts.auth')
 @section('content')
-<div class="w-full max-w-md p-8 bg-slate-900 border-2 border-blue-600 rounded-3xl shadow-[0_0_20px_rgba(37,99,235,0.3)]">
+<div class="w-full max-w-md p-8 bg-slate-900 border rounded-3xl">
     <h1 class="text-4xl text-center poke-font text-yellow-400 tracking-wider mb-2">JOIN THE LEAGUE</h1>
     <p class="text-center text-slate-400 text-sm mb-8 uppercase tracking-widest">Register Your Trainer Name</p>
 
     <form action="{{ route('register.post') }}" method="POST" class="space-y-4">
         @csrf
         <div>
-            <label class="text-xs font-bold text-blue-500 uppercase">Full Name</label>
+            <label class="text-xs font-bold text-white uppercase">Name</label>
             <input type="text" name="name" required class="w-full bg-slate-800 border-none rounded-xl p-3 focus:ring-2 focus:ring-yellow-400 outline-none mt-1">
         </div>
 
         <div>
-            <label class="text-xs font-bold text-blue-500 uppercase">Email</label>
+            <label class="text-xs font-bold text-white uppercase">Email</label>
             <input type="email" name="email" required class="w-full bg-slate-800 border-none rounded-xl p-3 focus:ring-2 focus:ring-yellow-400 outline-none mt-1">
         </div>
 
         <div class="grid grid-cols-2 gap-4">
             <div>
-                <label class="text-xs font-bold text-blue-500 uppercase">Password</label>
+                <label class="text-xs font-bold text-white uppercase">Password</label>
                 <input type="password" name="password" required class="w-full bg-slate-800 border-none rounded-xl p-3 focus:ring-2 focus:ring-yellow-400 outline-none mt-1">
             </div>
             <div>
-                <label class="text-xs font-bold text-blue-500 uppercase">Confirm</label>
+                <label class="text-xs font-bold text-white uppercase">Confirm</label>
                 <input type="password" name="password_confirmation" required class="w-full bg-slate-800 border-none rounded-xl p-3 focus:ring-2 focus:ring-yellow-400 outline-none mt-1">
             </div>
         </div>
