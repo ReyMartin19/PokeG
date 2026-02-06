@@ -7,7 +7,13 @@ use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
-    //
+    public function showLogin() {
+        return view('auth.login');
+    }
+
+    public function showRegister() {
+        return view('auth.register');
+    }
 
     public function register(Request $request) {
         $data = $request->validate([
@@ -28,7 +34,7 @@ class AuthController extends Controller
         ]);
 
         if (Auth::attempt($credentials)) {
-            return redirect()->intended('dashboard');
+            return redirect()->intended('home');
         }
 
         return back()->withErrors(['email' => 'Invalid Trainer credentials.']);

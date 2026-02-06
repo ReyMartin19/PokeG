@@ -16,7 +16,7 @@
     <nav class="flex justify-between items-center p-6 max-w-7xl mx-auto">
         <div class="text-3xl font-bold pokemon-font text-yellow-400 italic">PokeG</div>
         <div class="space-x-6">
-            <a href="#" class="bg-yellow-400 text-black px-5 py-2 rounded-full font-bold hover:bg-yellow-300 transition">Login / Register</a>
+            <a href="/login" class="bg-yellow-400 text-black px-5 py-2 rounded-full font-bold hover:bg-yellow-300 transition">Login / Register</a>
         </div>
     </nav>
 
