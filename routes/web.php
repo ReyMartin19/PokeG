@@ -2,14 +2,13 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Models\Pokemon;
+use App\Http\Controllers\PokemonController;
 
 Route::get('/', function () {
-    return view('welcome');
+    // Get random 10 pokemon
+    $pokemon = Pokemon::inRandomOrder()->limit(20)->get();
+    
+    return view('welcome', ['pokemon' => $pokemon]);
 });
 
-Route::get('/test-pokedex', function () {
-    // Get random 10 pokemon
-    $pokemon = Pokemon::inRandomOrder()->limit(10)->get();
-    
-    return view('test-pokedex', ['pokemon' => $pokemon]);
-});
+Route::get('/pokedex', [PokemonController::class, 'index'])->name('pokedex.index');
