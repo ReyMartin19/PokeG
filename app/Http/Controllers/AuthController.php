@@ -39,4 +39,9 @@ class AuthController extends Controller
 
         return back()->withErrors(['email' => 'Invalid Trainer credentials.']);
     }
+
+    public function logout() {
+        Auth::logout();
+        return redirect()->route('login');
+    }
 }

@@ -1,12 +1,12 @@
-@extends('layouts.app')
+@extends('layouts.guest')
 @section('content')
     <div class="z-10 text-white min-h-screen flex items-center justify-center max-w-7xl mx-auto"> 
         <div class="z-10 px-4 text-center">
             <h1 class="text-6xl md:text-8xl pokemon-font text-yellow-400 drop-shadow-lg mb-4 ">
-                WELCOME BACK, TRAINER.
+                BATTLE. COLLECT. CONQUER.
             </h1>
             <p class="text-xl md:text-2xl text-gray-200 mb-8 ">
-                Your Pokemon journey continues. Build your deck, battle other trainers, and climb the ranks to become a Pokemon Master!
+                The ultimate browser-based Pokemon card battler. Use the power of the PokeAPI to build your dream team and climb the ranks.
             </p>
         </div>
     </div>

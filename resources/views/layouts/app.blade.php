@@ -15,6 +15,15 @@
 
     <nav class="flex justify-between items-center p-6 max-w-7xl mx-auto">
         <div class="text-3xl font-bold pokemon-font text-yellow-400 italic">PokeG</div>
+        <div class="bg-yellow-300 p-3 rounded-2xl">
+            <form action="/logout" method="POST" class="m-0">
+                @csrf
+                <button type="submit" 
+                        class="flex items-center gap-1 p-2 rounded-lg transition hover:bg-white/10 text-white">
+                    <span class="text-sm">Logout</span>
+                </button>
+            </form>
+        </div>
     </nav>
 
     <div class="absolute inset-0 opacity-20 flex justify-center items-center pointer-events-none">
@@ -23,19 +32,9 @@
     </div>
 
     <div class="z-10 text-white min-h-screen flex items-center justify-center max-w-7xl mx-auto"> 
-        <div class="flex-1 z-10 px-4 text-left">
-            <h1 class="text-6xl md:text-8xl pokemon-font text-yellow-400 drop-shadow-lg mb-4 ">
-                BATTLE. COLLECT. CONQUER.
-            </h1>
-            <p class="text-xl md:text-2xl text-gray-200 mb-8 ">
-                The ultimate browser-based Pokemon card battler. Use the power of the PokeAPI to build your dream team and climb the ranks.
-            </p>
-        </div>
-        <div class="flex-1 flex justify-center items-center">
-            @yield('content')
-        </div>
+        @yield('content')
     </div>
-
+    
     <footer class="p-10 text-center text-gray-500 border-t border-gray-800">
         <p>© {{ date('Y') }} PokeG - Powered by Laravel & PokeAPI</p>
     </footer>
