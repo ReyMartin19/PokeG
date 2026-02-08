@@ -10,7 +10,10 @@ Route::get('/', function () {
     return redirect()->route('pokedex.index');
 });
 
+//pokedex
 Route::get('/pokedex', [PokemonController::class, 'index'])->middleware('auth')->name('pokedex.index');
+Route::get('/battle', [PokemonController::class, 'battle'])->middleware('auth')->name('pokedex.battle');
+Route::get('/cards', [PokemonController::class, 'cards'])->middleware('auth')->name('pokedex.cards');
 
 //auth
 Route::get('/login', [AuthController::class, 'showLogin'])->middleware('guest')->name('login');

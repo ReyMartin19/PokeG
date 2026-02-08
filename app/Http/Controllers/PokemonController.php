@@ -30,4 +30,14 @@ class PokemonController extends Controller
 
         return view('pokedex.index', compact('pokemon'));
     }
+
+    public function battle()
+    {
+        return view('pokedex.battle');
+    }
+
+    public function cards()
+    {
+        return view('pokedex.cards');
+    }
 }

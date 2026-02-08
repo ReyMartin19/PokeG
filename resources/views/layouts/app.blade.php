@@ -31,6 +31,10 @@
         <div class="w-[500px] h-[500px] bg-blue-500 rounded-full blur-[120px]"></div>
     </div>
 
+    <div class="flex justify-center items-center p-6 max-w-7xl mx-auto">
+        @include('partials.nav')
+    </div>
+
     <div class="z-10 text-white min-h-screen flex items-center justify-center max-w-7xl mx-auto"> 
         @yield('content')
     </div>
@@ -38,6 +42,6 @@
     <footer class="p-10 text-center text-gray-500 border-t border-gray-800">
         <p>© {{ date('Y') }} PokeG - Powered by Laravel & PokeAPI</p>
     </footer>
-
 </body>
 </html>
+
