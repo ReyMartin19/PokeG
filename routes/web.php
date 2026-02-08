@@ -7,14 +7,10 @@ use GuzzleHttp\Middleware;
 use Illuminate\Foundation\Configuration\Middleware as ConfigurationMiddleware;
 
 Route::get('/', function () {
-    return view('index');
-})->middleware('guest');
+    return redirect()->route('pokedex.index');
+});
 
-Route::get('/home', function () {
-    return view('home');
-})->middleware('auth')->name('home');
-
-Route::get('/pokedex', [PokemonController::class, 'index'])->name('pokedex.index');
+Route::get('/pokedex', [PokemonController::class, 'index'])->middleware('auth')->name('pokedex.index');
 
 //auth
 Route::get('/login', [AuthController::class, 'showLogin'])->middleware('guest')->name('login');

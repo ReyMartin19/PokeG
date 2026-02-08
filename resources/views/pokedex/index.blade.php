@@ -1,11 +1,17 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>PokeG - Pokedex</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-gray-100 p-8">
+@extends('layouts.app')
+@section('content')
 
+    <div class="z-10 text-white min-h-screen flex items-center justify-center max-w-7xl mx-auto"> 
+        <div class="z-10 px-4 text-center">
+            <h1 class="text-6xl md:text-8xl pokemon-font text-yellow-400 drop-shadow-lg mb-4 ">
+                WELCOME BACK, TRAINER.
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-200 mb-8 ">
+                Your Pokemon journey continues. Build your deck, battle other trainers, and climb the ranks to become a Pokemon Master!
+            </p>
+        </div>
+    </div>
+    
     <div class="max-w-6xl mx-auto">
         <h1 class="text-4xl font-bold mb-8 text-center text-red-600">PokeG Pokedex</h1>
 
@@ -51,5 +57,4 @@
         </div>
     </div>
 
-</body>
-</html>
+@endsection

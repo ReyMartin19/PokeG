@@ -24,7 +24,7 @@ class AuthController extends Controller
 
         $user = \App\Models\User::create($data);
         Auth::login($user);
-        return redirect()->route('home');
+        return redirect()->route('pokedex.index');
     }
 
     public function login(Request $request) {
@@ -34,7 +34,7 @@ class AuthController extends Controller
         ]);
 
         if (Auth::attempt($credentials)) {
-            return redirect()->intended('home');
+            return redirect()->intended(route('pokedex.index'));
         }
 
         return back()->withErrors(['email' => 'Invalid Trainer credentials.']);
