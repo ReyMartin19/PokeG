@@ -3,8 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PokemonController;
 use App\Http\Controllers\AuthController;
-use GuzzleHttp\Middleware;
-use Illuminate\Foundation\Configuration\Middleware as ConfigurationMiddleware;
+use App\Http\Controllers\BattleController;
 
 Route::get('/', function () {
     return redirect()->route('pokedex.index');
@@ -23,3 +22,12 @@ Route::get('/register', [AuthController::class, 'showRegister'])->middleware('gu
 Route::post('/register', [AuthController::class, 'register'])->name('register.post');
 
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+//battle
+Route::middleware('auth')->group(function () {
+    Route::get('/battle/init', [BattleController::class, 'createQuickMatch'])->name('battle.init');
+    Route::get('/battle/arena', function() {
+        return view('pokedex.battle.arena', ['state' => session('battle_state')]);
+    })->name('battle.arena');
+    Route::post('/battle/attack', [BattleController::class, 'attack'])->name('battle.attack')->middleware('auth');
+});
