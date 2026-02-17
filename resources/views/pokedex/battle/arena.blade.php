@@ -3,15 +3,17 @@
 @section('content')
 <div class="max-w-6xl w-full grid grid-cols-1 md:grid-cols-3 gap-8">
     
-    <div class="bg-blue-900/20 p-6 rounded-3xl border-2 border-blue-500 text-center">
-        <h3 class="text-xl font-bold mb-4">YOU</h3>
-        @php $pCard = $state['player']['cards'][$state['player']['active_index']]; @endphp
-        <img src="{{ $pCard['sprite_url'] }}" class="w-48 h-48 mx-auto">
-        <h2 class="text-2xl font-black uppercase text-white">{{ $pCard['name'] }}</h2>
-        <div class="w-full bg-gray-700 h-4 rounded-full mt-4 overflow-hidden">
-            <div class="bg-green-500 h-full" style="width: 100%"></div>
-        </div>
-        <p class="text-xs mt-2">HP: {{ $pCard['hp'] }} / {{ $pCard['hp'] }}</p>
+    <div class="mt-8 flex justify-center gap-2">
+        @foreach($state['player']['cards'] as $index => $card)
+            <div class="w-16 h-20 rounded-lg border {{ $index == $state['player']['active_index'] ? 'border-yellow-400 bg-slate-700' : 'border-slate-700 bg-slate-900 opacity-50' }} p-1 text-center">
+                <img src="{{ $card['sprite_url'] }}" class="w-10 h-10 mx-auto">
+                <p class="text-[8px] uppercase font-bold text-white">{{ $card['name'] }}</p>
+                
+                <div class="w-full bg-gray-800 h-1 mt-1 rounded-full">
+                    <div class="bg-green-500 h-full" style="width: {{ ($card['hp'] / $card['hp'] ?? 100) * 100 }}%"></div>
+                </div>
+            </div>
+        @endforeach
     </div>
 
     <div class="flex flex-col justify-center space-y-4">
@@ -29,16 +31,17 @@
         </form>
     </div>
 
-    <div class="bg-red-900/20 p-6 rounded-3xl border-2 border-red-500 text-center">
-        <h3 class="text-xl font-bold mb-4">BOT</h3>
-        @php $bCard = $state['bot']['cards'][$state['bot']['active_index']]; @endphp
-        <img src="{{ $bCard['sprite_url'] }}" class="w-48 h-48 mx-auto">
-        <h2 class="text-2xl font-black uppercase text-white">{{ $bCard['name'] }}</h2>
-        <div class="w-full bg-gray-700 h-4 rounded-full mt-4 overflow-hidden">
-            <div class="bg-red-500 h-full" style="width: 100%"></div>
-        </div>
-        <p class="text-xs mt-2">HP: {{ $bCard['hp'] }} / {{ $bCard['hp'] }}</p>
+    <div class="mt-8 flex justify-center gap-2">
+        @foreach($state['bot']['cards'] as $index => $card)
+            <div class="w-16 h-20 rounded-lg border {{ $index == $state['bot']['active_index'] ? 'border-yellow-400 bg-slate-700' : 'border-slate-700 bg-slate-900 opacity-50' }} p-1 text-center">
+                <img src="{{ $card['sprite_url'] }}" class="w-10 h-10 mx-auto">
+                <p class="text-[8px] uppercase font-bold text-white">{{ $card['name'] }}</p>
+                
+                <div class="w-full bg-gray-800 h-1 mt-1 rounded-full">
+                    <div class="bg-green-500 h-full" style="width: {{ ($card['hp'] / $card['hp'] ?? 100) * 100 }}%"></div>
+                </div>
+            </div>
+        @endforeach
     </div>
-
 </div>
 @endsection
