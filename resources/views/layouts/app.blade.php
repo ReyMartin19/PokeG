@@ -10,11 +10,12 @@
         .pokemon-font { font-family: 'Bangers', cursive; letter-spacing: 2px; }
         .hero-gradient { background: linear-gradient(135deg, #ee1515 0%, #2a75bb 100%); }
     </style>
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="bg-gray-900 text-white font-sans">
 
     <nav class="flex justify-between items-center p-6 max-w-7xl mx-auto">
-        <div class="text-3xl font-bold pokemon-font text-yellow-400 italic">PokeG</div>
+        <div class="text-3xl font-bold pokemon-font text-yellow-400">PokeG</div>
         <div>
             <a href="{{ route('pokedex.index') }}" class="tab-btn px-6 py-3 text-lg font-semibold border-b-2 border-transparent hover:border-blue-500">
                 Home
@@ -29,8 +30,8 @@
     </nav>
 
     <div class="absolute inset-0 opacity-20 flex justify-center items-center pointer-events-none">
-        <div class="w-[500px] h-[500px] bg-red-500 rounded-full blur-[120px]"></div>
-        <div class="w-[500px] h-[500px] bg-blue-500 rounded-full blur-[120px]"></div>
+        <div class="w-125 h-125 bg-red-500 rounded-full blur-[120px]"></div>
+        <div class="w-125 h-125 bg-blue-500 rounded-full blur-[120px]"></div>
     </div>
 
     <div class="z-10 text-white min-h-screen flex items-center justify-center max-w-7xl mx-auto"> 
