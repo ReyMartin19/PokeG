@@ -16,13 +16,17 @@
 
     <nav class="flex justify-between items-center p-6 max-w-7xl mx-auto">
         <div class="text-3xl font-bold pokemon-font text-yellow-400"><a href="/">PokeG</a></div>
-        <div>
-            <a href="{{ route('pokedex.battle') }}" class="tab-btn px-6 py-3 text-lg font-semibold border-b-2 border-transparent hover:border-blue-500">
-                Battle
-            </a>
-            <a href="{{ route('pokedex.cards') }}" class="tab-btn px-6 py-3 text-lg font-semibold border-b-2 border-transparent hover:border-blue-500">
-                Cards
-            </a>
+        
+        <div class="flex justify-between items-center gap-4">
+            
+            <div>
+                <a href="{{ route('pokedex.battle') }}" class="tab-btn px-6 py-3 text-lg font-semibold border-b-2 border-transparent hover:border-blue-500">
+                    Battle
+                </a>
+                <a href="{{ route('pokedex.cards') }}" class="tab-btn px-6 py-3 text-lg font-semibold border-b-2 border-transparent hover:border-blue-500">
+                    Cards
+                </a>
+            </div>
         </div>
     </nav>
 

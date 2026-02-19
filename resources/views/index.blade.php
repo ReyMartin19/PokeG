@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<div class="flex flex-col">
+<div class="flex flex-col mt-10">
     <div class="z-10 text-white flex items-center justify-center max-w-7xl m-8"> 
         <div class="z-10 px-4 text-center">
             <h1 class="text-6xl md:text-8xl pokemon-font text-yellow-400 drop-shadow-lg mb-4 ">
@@ -10,12 +10,6 @@
     </div>
 
     <div class="max-w-6xl mx-auto">
-        <form action="{{ route('pokedex.index') }}" method="GET" class="mb-8 flex flex-wrap gap-4 justify-center">
-            <input type="text" name="search" placeholder="Search Pokemon..." 
-                   value="{{ request('search') }}"
-                   class="border p-3 rounded-4xl w-100">
-        </form>
-
         <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-8">
             @foreach($pokemon as $p)
                 <div class="bg-white p-4 rounded-xl shadow-md text-center border-t-4 border-red-500 hover:scale-105 transition-transform">
