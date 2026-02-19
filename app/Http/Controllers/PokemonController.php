@@ -29,6 +29,7 @@ class PokemonController extends Controller
 
     public function cards()
     {
-        return view('pokedex.cards');
+        $pokemon = Pokemon::paginate(8);
+        return view('pokedex.cards', compact('pokemon'));
     }
 }

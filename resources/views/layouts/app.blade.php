@@ -36,7 +36,7 @@
     </div>
     
     <footer class="p-10 text-center text-gray-500 border-t border-gray-800">
-        <p>© {{ date('Y') }} PokeG - Powered by Laravel & PokeAPI</p>
+        <p>© {{ date('Y') }} PokeG - Made by Rey</p>
     </footer>
 </body>
 </html>
