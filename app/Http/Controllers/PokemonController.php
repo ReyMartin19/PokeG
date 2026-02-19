@@ -28,7 +28,7 @@ class PokemonController extends Controller
         // 4. Get results with Pagination (show 20 per page)
         $pokemon = $query->paginate(20)->withQueryString();
 
-        return view('pokedex.index', compact('pokemon'));
+        return view('index', compact('pokemon'));
     }
 
     public function battle()

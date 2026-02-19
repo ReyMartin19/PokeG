@@ -15,24 +15,22 @@
 
     <nav class="flex justify-between items-center p-6 max-w-7xl mx-auto">
         <div class="text-3xl font-bold pokemon-font text-yellow-400 italic">PokeG</div>
-        <div class="bg-yellow-300 p-3 rounded-2xl">
-            <form action="/logout" method="POST" class="m-0">
-                @csrf
-                <button type="submit" 
-                        class="flex items-center gap-1 p-2 rounded-lg transition hover:bg-white/10 text-white">
-                    <span class="text-sm">Logout</span>
-                </button>
-            </form>
+        <div>
+            <a href="{{ route('pokedex.index') }}" class="tab-btn px-6 py-3 text-lg font-semibold border-b-2 border-transparent hover:border-blue-500">
+                Home
+            </a>
+            <a href="{{ route('pokedex.battle') }}" class="tab-btn px-6 py-3 text-lg font-semibold border-b-2 border-transparent hover:border-blue-500">
+                Battle
+            </a>
+            <a href="{{ route('pokedex.cards') }}" class="tab-btn px-6 py-3 text-lg font-semibold border-b-2 border-transparent hover:border-blue-500">
+                Cards
+            </a>
         </div>
     </nav>
 
     <div class="absolute inset-0 opacity-20 flex justify-center items-center pointer-events-none">
         <div class="w-[500px] h-[500px] bg-red-500 rounded-full blur-[120px]"></div>
         <div class="w-[500px] h-[500px] bg-blue-500 rounded-full blur-[120px]"></div>
-    </div>
-
-    <div class="flex justify-center items-center p-6 max-w-7xl mx-auto">
-        @include('partials.nav')
     </div>
 
     <div class="z-10 text-white min-h-screen flex items-center justify-center max-w-7xl mx-auto"> 
