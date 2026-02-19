@@ -15,11 +15,8 @@
 <body class="bg-gray-900 text-white font-sans">
 
     <nav class="flex justify-between items-center p-6 max-w-7xl mx-auto">
-        <div class="text-3xl font-bold pokemon-font text-yellow-400">PokeG</div>
+        <div class="text-3xl font-bold pokemon-font text-yellow-400"><a href="/">PokeG</a></div>
         <div>
-            <a href="{{ route('pokedex.index') }}" class="tab-btn px-6 py-3 text-lg font-semibold border-b-2 border-transparent hover:border-blue-500">
-                Home
-            </a>
             <a href="{{ route('pokedex.battle') }}" class="tab-btn px-6 py-3 text-lg font-semibold border-b-2 border-transparent hover:border-blue-500">
                 Battle
             </a>
@@ -34,7 +31,7 @@
         <div class="w-125 h-125 bg-blue-500 rounded-full blur-[120px]"></div>
     </div>
 
-    <div class="z-10 text-white min-h-screen flex items-center justify-center max-w-7xl mx-auto"> 
+    <div class="z-10 text-white min-h-screen flex justify-center max-w-7xl mx-auto"> 
         @yield('content')
     </div>
     
