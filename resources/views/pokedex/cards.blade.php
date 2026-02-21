@@ -2,22 +2,24 @@
 @section('content')
 <div class="flex flex-col gap-7 mt-10 w-full">
     <div>
-        <form action="{{ route('pokedex.cards') }}" method="GET" class="flex justify-between">
-            <input type="text" name="search" placeholder="Search Pokemon..." 
+        <form id="pokedex-form" action="{{ route('pokedex.cards') }}" method="GET" class="flex justify-between">
+            
+            <input type="text" name="search" id="search-input" placeholder="Search Pokemon..." 
                 value="{{ request('search') }}"
-                class="border p-2 pl-4 rounded-4xl">  <!-- Consider using w-80 or w-full -->
+                class="border p-2 pl-4 rounded-4xl w-80 text-black"
+                oninput="debounceSubmit()">
+
             <div>
-                <select name="type" class="border p-2 rounded">
-                    <option value="" class="text-black">All Types</option>
+                <select name="type" class="border p-2 rounded text-black" onchange="this.form.submit()">
+                    <option value="">All Types</option>
                     @foreach(['fire', 'water', 'grass', 'electric', 'psychic', 'ice', 'dragon', 'dark', 'fairy', 'normal', 'fighting', 'flying', 'poison', 'ground', 'rock', 'bug', 'ghost', 'steel'] as $type)
-                        <option class="text-black" value="{{ $type }}" {{ request('type') == $type ? 'selected' : '' }}>
+                        <option value="{{ $type }}" {{ request('type') == $type ? 'selected' : '' }}>
                             {{ ucfirst($type) }}
                         </option>
                     @endforeach
                 </select>
                 
-                <button type="submit" class="bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-600">Filter</button>
-                <a href="{{ route('pokedex.cards') }}" class="bg-gray-300 px-6 py-2 rounded hover:bg-gray-400">Reset</a>
+                <a href="{{ route('pokedex.cards') }}" class="bg-gray-300 px-6 py-2 rounded hover:bg-gray-400 text-black">Reset</a>
             </div>
         </form>
     </div>
@@ -47,3 +49,24 @@
     </div>
 </div>
 @endsection
+
+<script>
+    let timeout = null;
+
+    function debounceSubmit() {
+        // Clear the timer if the user is still typing
+        clearTimeout(timeout);
+
+        // Wait 500 milliseconds after the last keystroke to submit
+        timeout = setTimeout(function () {
+            document.getElementById('pokedex-form').submit();
+        }, 500);
+    }
+
+    // This puts the cursor at the end of the text after the auto-refresh
+    const searchInput = document.getElementById('search-input');
+    if (searchInput.value.length > 0) {
+        searchInput.focus();
+        searchInput.setSelectionRange(searchInput.value.length, searchInput.value.length);
+    }
+</script>
