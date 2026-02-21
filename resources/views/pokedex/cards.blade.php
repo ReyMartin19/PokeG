@@ -1,11 +1,11 @@
 @extends('layouts.app')
 @section('content')
-<div class="flex flex-col gap-7 mt-10">
+<div class="flex flex-col gap-7 mt-10 w-full">
     <div>
         <form action="{{ route('pokedex.cards') }}" method="GET" class="flex justify-between">
             <input type="text" name="search" placeholder="Search Pokemon..." 
                 value="{{ request('search') }}"
-                class="border p-2 pl-4 rounded-4xl w-100">
+                class="border p-2 pl-4 rounded-4xl">  <!-- Consider using w-80 or w-full -->
             <div>
                 <select name="type" class="border p-2 rounded">
                     <option value="" class="text-black">All Types</option>
@@ -20,11 +20,9 @@
                 <a href="{{ route('pokedex.cards') }}" class="bg-gray-300 px-6 py-2 rounded hover:bg-gray-400">Reset</a>
             </div>
         </form>
-        <div>
-
-        </div>
     </div>
-   <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-8">
+    
+    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-8">
         @foreach($pokemon as $p)
             <div class="bg-white p-4 rounded-xl shadow-md text-center border-t-4 border-red-500 hover:scale-105 transition-transform">
                 <span class="text-gray-400 text-sm font-bold">#{{ $p->pokeapi_id }}</span>
@@ -42,6 +40,7 @@
             </div>
         @endforeach
     </div>
+
 
     <div>
         {{ $pokemon->links() }}
