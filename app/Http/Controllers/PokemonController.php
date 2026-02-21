@@ -50,4 +50,9 @@ class PokemonController extends Controller
 
         return view('pokedex.cards', compact('pokemon'));
     }
+
+    public function show(Pokemon $pokemon)
+    {
+        return view('pokedex.show', compact('pokemon'));
+    }
 }

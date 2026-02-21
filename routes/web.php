@@ -9,3 +9,6 @@ Route::get('/', [PokemonController::class, 'index'])->name('pokedex.index');
 //pokedex
 Route::get('/battle', [PokemonController::class, 'battle'])->name('pokedex.battle');
 Route::get('/cards', [PokemonController::class, 'cards'])->name('pokedex.cards');
+
+//show pokemon
+Route::get('/pokemon/{pokemon}', [PokemonController::class, 'show'])->name('pokemon.show');
